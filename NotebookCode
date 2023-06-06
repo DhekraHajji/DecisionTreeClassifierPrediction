@@ -1,0 +1,22 @@
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import plot_tree
+import matplotlib.pyplot as plt
+
+# Load the Iris dataset
+data = load_iris()
+X = data.data
+y = data.target
+feature_names = data.feature_names
+
+# Create a decision tree classifier
+clf = DecisionTreeClassifier()
+
+# Fit the classifier to the data
+clf.fit(X, y)
+
+# Visualize the decision tree
+plt.figure(figsize=(10, 6))
+plot_tree(clf, feature_names=feature_names, class_names=data.target_names, filled=True)
+plt.show()
